@@ -32,7 +32,7 @@ AppwriteServices(){
     }
  }
 
-  Future<Document> addNote(String title,String description) async {
+  Future<Document> addNote(String title,String Description) async {
     try {
       final documentId = ID.unique(); 
 
@@ -41,7 +41,7 @@ AppwriteServices(){
         databaseId: databaseId,
         data: {
           'title': title,
-          'subtitle':description,
+          'Description':Description,
           
         },
         documentId: documentId,
