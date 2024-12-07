@@ -17,12 +17,12 @@ class _HomescreenState extends State<Homescreen> {
     fetchTasks();
   }
 
-  // Fetch tasks from Appwrite
+  
   Future<void> fetchTasks() async {
     try {
       final response = await appwriteService.database.listDocuments(
-         databaseId: '67525ff4002131301021', // Replace with your database ID
-        collectionId:'6752604000126c2f3359',//Replace with your collection ID
+         databaseId: '67525ff4002131301021',
+        collectionId:'6752604000126c2f3359',
       );
 
       setState(() {
@@ -43,7 +43,7 @@ class _HomescreenState extends State<Homescreen> {
     }
   }
 
-  // Navigate to Task Screen for editing
+  
   void editTask(String taskId, String title, String description,String date,String time) async {
     final result = await Navigator.push(
       context,
@@ -59,7 +59,7 @@ class _HomescreenState extends State<Homescreen> {
     );
 
     if (result != null) {
-      fetchTasks(); // Refresh tasks after editing
+      fetchTasks(); 
     }
   }
 
@@ -67,8 +67,8 @@ class _HomescreenState extends State<Homescreen> {
   Future<void> deleteTask(String taskId) async {
     try {
       await appwriteService.database.deleteDocument(
-  databaseId: '67525ff4002131301021', // Replace with your database ID
-        collectionId:'6752604000126c2f3359', // Replace with your collection ID
+  databaseId: '67525ff4002131301021', 
+        collectionId:'6752604000126c2f3359', 
         documentId: taskId,
       );
 
@@ -106,12 +106,12 @@ class _HomescreenState extends State<Homescreen> {
             )
           : GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Number of columns
-                crossAxisSpacing: 15.0, // Horizontal spacing
-                mainAxisSpacing: 15.0, // Vertical spacing
-                childAspectRatio: 0.90, // Width to height ratio
+                crossAxisCount: 2, 
+                crossAxisSpacing: 15.0, 
+                mainAxisSpacing: 15.0, 
+                childAspectRatio: 0.90, 
               ),
-              padding: const EdgeInsets.all(10.0), // Padding around the grid
+              padding: const EdgeInsets.all(10.0), 
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 final task = tasks[index];
@@ -143,18 +143,18 @@ class _HomescreenState extends State<Homescreen> {
                         ),
                         
                       Row(
-  children: [
-    Text(
-      task['date'],
-      style: const TextStyle(fontSize: 12, color: Colors.black54),
-    ),
-    const Spacer(), // Adds space between the date and time
-    Text(
-      task['time'],
-      style: const TextStyle(fontSize: 12, color: Colors.black54),
-    ),
-  ],
-),
+                         children: [
+                                 Text(
+                                      task['date'],
+                              style: const TextStyle(fontSize: 12, color: Colors.black54),
+                          ),
+                                const Spacer(), 
+                                  Text(
+                                    task['time'],
+                                   style: const TextStyle(fontSize: 12, color: Colors.black54),
+                                   ),
+                                       ],
+                                      ),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -191,7 +191,7 @@ class _HomescreenState extends State<Homescreen> {
     );
   }
 
-  // Navigate to Task Screen for adding
+  
   void navigateToTaskScreen() async {
     final result = await Navigator.push(
       context,
@@ -199,7 +199,7 @@ class _HomescreenState extends State<Homescreen> {
     );
 
     if (result != null) {
-      fetchTasks(); // Refresh tasks after adding
+      fetchTasks(); 
     }
   }
 }
