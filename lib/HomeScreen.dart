@@ -107,8 +107,8 @@ class _HomescreenState extends State<Homescreen> {
           : GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // Number of columns
-                crossAxisSpacing: 10.0, // Horizontal spacing
-                mainAxisSpacing: 10.0, // Vertical spacing
+                crossAxisSpacing: 15.0, // Horizontal spacing
+                mainAxisSpacing: 15.0, // Vertical spacing
                 childAspectRatio: 0.90, // Width to height ratio
               ),
               padding: const EdgeInsets.all(10.0), // Padding around the grid
